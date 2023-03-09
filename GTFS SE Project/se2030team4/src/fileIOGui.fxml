@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+    <MenuBar>
+        <Menu mnemonicParsing="false" text="File">
+            <MenuItem mnemonicParsing="false" onAction="#openFile" text="Open" />
+            <MenuItem fx:id="export" disable="true" mnemonicParsing="false" onAction="#exportFile" text="Export" />
+        </Menu>
+      <Menu mnemonicParsing="false" text="View">
+        <items>
+            <MenuItem fx:id="viewMap" mnemonicParsing="false" onAction="#viewMap" text="Map" />
+        </items>
+      </Menu>
+    </MenuBar>
+    <Pane prefHeight="616.0" prefWidth="658.0">
+        <children>
+            <TextField fx:id="stopIdForTrips" layoutX="10.0" layoutY="2.0" prefHeight="25.0" prefWidth="112.0" text="stop_id" />
+            <Button fx:id="trips" disable="true" layoutX="384.0" layoutY="2.0" mnemonicParsing="false" onAction="#searchTripsWithStopId" text="Find Stop Trips" />
+            <Button layoutX="159.0" layoutY="37.0" mnemonicParsing="false" onAction="#displayNumTrips" text="Get Number of Trips for all Stops" visible="false" />
+         <Button fx:id="routes" disable="true" layoutX="292.0" layoutY="2.0" mnemonicParsing="false" onAction="#searchRouteWithStopId" text="Find Routes" />
+         <Button fx:id="nextTrip" disable="true" layoutX="159.0" layoutY="2.0" mnemonicParsing="false" onAction="#searchNextTripWithStopId" text="Search For Next Trip" />
+         <ScrollPane layoutX="1.0" layoutY="67.0" prefHeight="307.0" prefWidth="600.0">
+           <content>
+             <AnchorPane minHeight="0.0" minWidth="0.0">
+                  <children>
+                     <Label fx:id="text" layoutX="-1.0" layoutY="-2.0" />
+                  </children>
+               </AnchorPane>
+           </content>
+         </ScrollPane>
+         <Button fx:id="routesStop" disable="true" layoutX="178.0" layoutY="37.0" mnemonicParsing="false" onAction="#searchStopWithRouteId" text="Find Stops" />
+         <TextField fx:id="routesForStop" layoutX="10.0" layoutY="37.0" prefHeight="25.0" prefWidth="112.0" text="route_id" />
+         <Button fx:id="routesTrip" disable="true" layoutX="297.0" layoutY="37.0" mnemonicParsing="false" onAction="#searchTripWithRouteId" text="Find Route Trips" />
+        </children>
+    </Pane>
+</VBox>

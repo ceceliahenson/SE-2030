@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>Google Maps Multiple Markers</title>
+  <script src="http://maps.google.com/maps/api/js?key=AIzaSyCl4-hEJ7_wHxKGCQNmUV1KrEBWPIz9D7o"
+          type="text/javascript"></script>
+</head>
+<body>
+<div id="map" style="width: 500px; height: 400px;"></div>
+
+<script type="text/javascript">
+
+  function centralizeMap(lat, long){
+    map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 10,
+      center: new google.maps.LatLng(lat,long),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+  }
+
+  function createMarker(lat,long,name, color) {
+
+
+
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(lat, long),
+        icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=|' + color,
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(name);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+
+  }
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 10,
+    center: new google.maps.LatLng(43.0138967,-88.0272162),
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  });
+
+  var infowindow = new google.maps.InfoWindow();
+
+  var marker, i;
+
+
+</script>
+</body>
+</html>
